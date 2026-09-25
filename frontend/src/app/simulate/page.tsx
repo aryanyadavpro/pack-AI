@@ -153,13 +153,13 @@ function SimulateContent() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Controls Sidebar (4 cols) */}
-        <div className="lg:col-span-4 space-y-6">
-          <div className="manus-glass-card p-6 sm:p-7 rounded-3xl space-y-5">
-            <h2 className="text-base font-bold text-slate-900 flex items-center justify-between">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Controls Sidebar (4 cols) - Sticky to follow viewport */}
+        <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1">
+          <div className="paper-card p-6 sm:p-7 rounded-3xl space-y-5">
+            <h2 className="text-base font-bold text-[#141928] flex items-center justify-between">
               <span className="flex items-center gap-2">
-                <Layers className="h-4 w-4 text-emerald-600" />
+                <Layers className="h-4 w-4 text-[#2A45FE]" />
                 <span>Simulation Controls</span>
               </span>
               <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">

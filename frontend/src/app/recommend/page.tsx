@@ -245,12 +245,12 @@ export default function RecommendPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Column: Input Form (5 cols) */}
-        <div className="lg:col-span-5 space-y-6">
-          <div className="manus-glass-card p-6 sm:p-7 rounded-3xl space-y-5">
-            <h2 className="text-base font-bold text-slate-900 flex items-center gap-2.5">
-              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800">1</span>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Input Form (5 cols) - Sticky to follow the viewport */}
+        <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1">
+          <div className="paper-card p-6 sm:p-7 rounded-3xl space-y-5">
+            <h2 className="text-base font-bold text-[#141928] flex items-center gap-2.5">
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2A45FE] text-xs font-bold text-white">1</span>
               <span>Universal Food Formulation</span>
             </h2>
 
@@ -574,7 +574,7 @@ export default function RecommendPage() {
             <button
               onClick={handleOptimize}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 py-3.5 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/30 active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
+              className="btn-cobalt w-full flex items-center justify-center gap-2 py-3.5 text-sm font-bold disabled:opacity-50 cursor-pointer"
             >
               {loading ? (
                 <>
