@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Offline — BioPack AI</title>
+  <link rel="icon" href="/icon.svg">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background: #f8fafc;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 28px;
+      padding: 36px 28px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px -10px rgba(100, 116, 139, 0.12);
+    }
+    .orb {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e0e7ff 25%, #c084fc 50%, #67e8f9 75%, #f472b6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 12px 28px -4px rgba(168, 85, 247, 0.35);
+    }
+    h1 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #0f172a; }
+    p { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 24px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 20px;
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #1e293b; }
+    .cached-links {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cached-links a {
+      font-size: 12px;
+      color: #059669;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="orb">BP</div>
+    <div class="badge">📡 Offline Mode</div>
+    <h1>You are currently offline</h1>
+    <p>BioPack AI has cached your local commodities and session. Check your internet connection or browse cached tools below.</p>
+    <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+    <div class="cached-links">
+      <a href="/chat">Open AI Copilot</a>
+      <a href="/recommend">Open Packaging Wizard</a>
+      <a href="/commodities">Browse Cached Commodities</a>
+    </div>
+  </div>
+</body>
+</html>

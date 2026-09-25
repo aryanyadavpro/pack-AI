@@ -1,0 +1,75 @@
+{
+  "id": "/",
+  "name": "BioPack AI — Intelligent Food Packaging Platform",
+  "short_name": "BioPack AI",
+  "description": "Deterministic food packaging recommendation and shelf-life simulation engine for Indian agro-food commodities based on FSSAI regulations 2018 and certified bioplastics.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "background_color": "#f8fafc",
+  "theme_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "AI Packaging Copilot",
+      "short_name": "Copilot",
+      "description": "Consult AI food packaging scientist",
+      "url": "/chat",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Packaging Wizard",
+      "short_name": "Recommender",
+      "description": "Calculate permissible OTR & WVTR barriers",
+      "url": "/recommend",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Shelf-Life Simulator",
+      "short_name": "Simulator",
+      "description": "Run daily shelf-life degradation curves",
+      "url": "/simulate",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Statutory FSSAI Audit",
+      "short_name": "Audit",
+      "description": "Generate IS 9845 compliance certificate",
+      "url": "/audit",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}
