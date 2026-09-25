@@ -131,15 +131,15 @@ export default function ChatPage() {
           e.preventDefault();
           handleSend();
         }}
-        className={`manus-pill rounded-2xl sm:rounded-full p-2 pl-4 flex items-center gap-2.5 bg-white/95 backdrop-blur-2xl border border-slate-200/90 hover:border-emerald-400/80 transition-all ${
+        className={`rounded-2xl sm:rounded-full p-2 pl-3.5 flex items-center gap-2.5 bg-white border border-[#E8E1D5] hover:border-[#2A45FE]/60 transition-all ${
           isBottomBar
-            ? "shadow-[0_12px_40px_-8px_rgba(100,116,139,0.22)]"
-            : "shadow-[0_16px_48px_-10px_rgba(100,116,139,0.16)]"
+            ? "shadow-[0_12px_35px_-8px_rgba(20,25,40,0.12)]"
+            : "shadow-[0_16px_40px_-10px_rgba(20,25,40,0.08)]"
         }`}
       >
-        {/* Mini Iridescent Logo Orb */}
-        <div className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-full iridescent-sphere flex items-center justify-center shadow-xs">
-          <span className="text-[10px] sm:text-[11px] font-black text-white">BP</span>
+        {/* Mini Brand Logo */}
+        <div className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-xl overflow-hidden bg-white border border-[#E8E1D5] flex items-center justify-center shadow-2xs">
+          <img src="/logo.png" alt="PackCraft AI" className="h-6 w-6 object-contain" />
         </div>
 
         {/* Text Input */}
@@ -148,7 +148,7 @@ export default function ChatPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask anything: e.g. Shelf-life for Paneer at 4°C, or Bhujia moisture barrier..."
-          className="flex-1 bg-transparent text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none"
+          className="flex-1 bg-transparent text-xs sm:text-sm text-[#141928] placeholder:text-[#8592A6] focus:outline-none"
         />
 
         {/* Quick Action Icons */}
@@ -261,9 +261,16 @@ export default function ChatPage() {
         {messages.length === 0 ? (
           /* Empty / Standby Ambient View (Optimized for PC & Mobile) */
           <div className="flex flex-col items-center justify-center py-6 sm:py-10 text-center max-w-4xl mx-auto w-full">
+            {/* Top Pill Tag */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#141928] bg-white px-3.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#141928] shadow-2xs mb-5">
+              <span className="text-[#2A45FE]">✱</span>
+              <span>Packaging Intelligence Studio</span>
+              <span className="text-[#2A45FE]">✱</span>
+            </div>
+
             {/* Signature Brand Badge */}
             <div className="relative mb-5 flex items-center justify-center">
-              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-white border border-[#E8E1D5] shadow-xl shadow-blue-500/10 p-3 transition-transform hover:scale-105 duration-300">
+              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-white border border-[#E8E1D5] shadow-xl shadow-blue-500/10 p-3.5 transition-transform hover:scale-105 duration-300">
                 <img src="/logo.png" alt="PackCraft AI" className="h-full w-full object-contain" />
               </div>
             </div>
