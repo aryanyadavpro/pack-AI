@@ -287,10 +287,10 @@ export default function RecommendPage() {
                     key={arch.label}
                     type="button"
                     onClick={() => handleApplyArchetype(arch)}
-                    className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
+                    className={`rounded-full px-3 py-1 text-[11px] font-bold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                       commodityName === arch.name
-                        ? "bg-slate-900 text-white shadow-xs"
-                        : "bg-white border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                        ? "bg-[#141928] text-white shadow-xs"
+                        : "bg-white border border-[#E8E1D5] text-[#546071] hover:text-[#141928] hover:bg-[#FAF7F2]"
                     }`}
                   >
                     {arch.label}
@@ -399,12 +399,11 @@ export default function RecommendPage() {
               )}
             </div>
 
-            {/* Instant Section 1 Action Button */}
             <button
               type="button"
               onClick={handleOptimize}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-3 shadow-md hover:shadow-lg active:scale-[0.99] transition-all disabled:opacity-50 cursor-pointer"
+              className="btn-cobalt w-full flex items-center justify-center gap-2 text-xs py-3.5 disabled:opacity-50 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -655,80 +654,80 @@ export default function RecommendPage() {
               </div>
 
               {/* Top 1 Recommendation Spec Sheet */}
-              <div className="manus-glass-card p-6 sm:p-7 rounded-3xl relative overflow-hidden border border-emerald-500/30 shadow-md">
+              <div className="paper-card p-6 sm:p-8 rounded-3xl relative overflow-hidden">
                 <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-bold text-white shadow-xs">
+                    <span className="rounded-full bg-[#2A45FE] px-3.5 py-1 text-xs font-black uppercase tracking-wider text-white shadow-xs">
                       RANK #1 OPTIMAL
                     </span>
-                    <span className="rounded-full bg-slate-100 text-slate-700 px-3 py-1 text-xs font-semibold border border-slate-200">
+                    <span className="rounded-full bg-[#FAF7F2] text-[#141928] px-3.5 py-1 text-xs font-bold border border-[#E8E1D5]">
                       {topRec.polymer_family}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                    <span className="text-xs text-slate-600 font-medium">TOPSIS Score:</span>
-                    <span className="text-sm font-extrabold text-emerald-700">{(topRec.topsis_closeness_score * 100).toFixed(1)}%</span>
+                  <div className="flex items-center gap-2 bg-[#F7D25C]/25 px-3.5 py-1 rounded-full border border-[#F7D25C]">
+                    <span className="text-xs text-[#546071] font-semibold">TOPSIS Score:</span>
+                    <span className="text-sm font-black text-[#141928]">{(topRec.topsis_closeness_score * 100).toFixed(1)}%</span>
                   </div>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 leading-tight tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-black uppercase text-[#141928] mb-2 leading-tight tracking-tight">
                   {topRec.trade_name}
                 </h3>
                 
-                {/* Visual Multilayer Cross-section */}
-                <div className="my-5 p-4 rounded-2xl bg-slate-900 text-white shadow-sm">
-                  <div className="text-xs font-semibold text-slate-300 mb-2.5 flex items-center gap-2">
-                    <Layers className="h-4 w-4 text-emerald-400" />
+                {/* Visual Multilayer Cross-section (Clean Architectural Spec Box - No Black) */}
+                <div className="my-5 p-4 sm:p-5 rounded-2xl bg-[#FAF7F2] border border-[#E8E1D5]">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[#141928] mb-2.5 flex items-center gap-2">
+                    <Layers className="h-4 w-4 text-[#2A45FE]" />
                     <span>Engineered Biodegradable Layer Structure</span>
                   </div>
-                  <div className="p-3.5 rounded-xl bg-slate-950/80 border border-emerald-500/30 text-xs sm:text-sm font-mono text-emerald-300 leading-relaxed">
+                  <div className="p-4 rounded-xl bg-white border border-[#E8E1D5] text-xs sm:text-sm font-bold text-[#141928] leading-relaxed">
                     {topRec.layer_structure}
                   </div>
                 </div>
 
                 {/* Key Spec Badges */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
-                  <div className="bg-slate-50/90 p-3.5 rounded-2xl border border-slate-200 shadow-xs">
-                    <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Gauge Thickness</div>
-                    <div className="text-base font-extrabold text-slate-900 mt-0.5">{topRec.recommended_gauge_thickness_um} µm</div>
+                  <div className="bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8E1D5]">
+                    <div className="text-[10px] uppercase font-bold text-[#546071] tracking-wider">Gauge Thickness</div>
+                    <div className="text-base font-black text-[#141928] mt-0.5">{topRec.recommended_gauge_thickness_um} µm</div>
                   </div>
-                  <div className="bg-slate-50/90 p-3.5 rounded-2xl border border-slate-200 shadow-xs">
-                    <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Target OTR</div>
-                    <div className="text-base font-extrabold text-amber-700 mt-0.5">{topRec.target_otr_cc_m2_day_atm}</div>
+                  <div className="bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8E1D5]">
+                    <div className="text-[10px] uppercase font-bold text-[#546071] tracking-wider">Target OTR</div>
+                    <div className="text-base font-black text-[#F3A286] mt-0.5">{topRec.target_otr_cc_m2_day_atm}</div>
                   </div>
-                  <div className="bg-slate-50/90 p-3.5 rounded-2xl border border-slate-200 shadow-xs">
-                    <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Target WVTR</div>
-                    <div className="text-base font-extrabold text-emerald-700 mt-0.5">{topRec.target_wvtr_g_m2_day}</div>
+                  <div className="bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8E1D5]">
+                    <div className="text-[10px] uppercase font-bold text-[#546071] tracking-wider">Target WVTR</div>
+                    <div className="text-base font-black text-[#1F8756] mt-0.5">{topRec.target_wvtr_g_m2_day}</div>
                   </div>
-                  <div className="bg-slate-50/90 p-3.5 rounded-2xl border border-slate-200 shadow-xs">
-                    <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Sealing Protocol</div>
-                    <div className="text-xs font-bold text-slate-800 mt-1 truncate" title={topRec.sealing_mechanism}>
+                  <div className="bg-[#FAF7F2] p-3.5 rounded-2xl border border-[#E8E1D5]">
+                    <div className="text-[10px] uppercase font-bold text-[#546071] tracking-wider">Sealing Protocol</div>
+                    <div className="text-xs font-bold text-[#141928] mt-1 truncate" title={topRec.sealing_mechanism}>
                       {topRec.sealing_mechanism}
                     </div>
                   </div>
                 </div>
 
                 {/* Regulatory Compliance Cards */}
-                <div className="space-y-3 pt-4 border-t border-slate-200 text-xs">
-                  <div className="flex items-start gap-2.5 text-slate-700">
-                    <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="space-y-3 pt-4 border-t border-[#E8E1D5] text-xs">
+                  <div className="flex items-start gap-2.5 text-[#546071]">
+                    <ShieldCheck className="h-4 w-4 text-[#1F8756] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900">Statutory IS 9845 Simulant: </span>
-                      <span className="text-emerald-800 font-semibold">{topRec.simulant_prescribed}</span>
+                      <span className="font-bold text-[#141928]">Statutory IS 9845 Simulant: </span>
+                      <span className="text-[#1F8756] font-bold">{topRec.simulant_prescribed}</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 text-slate-700">
-                    <Award className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-[#546071]">
+                    <Award className="h-4 w-4 text-[#2A45FE] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900">FSSAI Regulation: </span>
-                      <span className="text-slate-700 font-medium">{topRec.fssai_clause}</span>
+                      <span className="font-bold text-[#141928]">FSSAI Regulation: </span>
+                      <span className="text-[#141928] font-medium">{topRec.fssai_clause}</span>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 text-slate-700">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2.5 text-[#546071]">
+                    <CheckCircle2 className="h-4 w-4 text-[#1F8756] shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-slate-900">CPCB Compliance: </span>
-                      <span className="text-slate-700 font-medium">{topRec.cpcb_category}</span>
+                      <span className="font-bold text-[#141928]">CPCB Compliance: </span>
+                      <span className="text-[#141928] font-medium">{topRec.cpcb_category}</span>
                     </div>
                   </div>
                 </div>
@@ -737,14 +736,14 @@ export default function RecommendPage() {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <Link
                     href={`/simulate?commodity=${encodeURIComponent(commodityName)}&thickness=${topRec.recommended_gauge_thickness_um}&otr=${topRec.target_otr_cc_m2_day_atm}&wvtr=${topRec.target_wvtr_g_m2_day}`}
-                    className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-emerald-700 shadow-sm transition-colors"
+                    className="btn-cobalt inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold"
                   >
-                    Simulate Shelf-Life Curves
+                    <span>Simulate Shelf-Life Curves</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                   <Link
                     href={`/audit?commodity=${encodeURIComponent(commodityName)}&material=${encodeURIComponent(topRec.trade_name)}&thickness=${topRec.recommended_gauge_thickness_um}`}
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50 shadow-xs transition-colors"
+                    className="btn-ink-outline inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold"
                   >
                     Generate FSSAI Audit Certificate
                   </Link>

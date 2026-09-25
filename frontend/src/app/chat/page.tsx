@@ -175,7 +175,7 @@ export default function ChatPage() {
           <button
             type="submit"
             disabled={!input.trim() || loading}
-            className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-emerald-600 disabled:opacity-30 disabled:hover:bg-slate-900 transition-all shadow-sm cursor-pointer"
+            className="h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#2A45FE] text-white flex items-center justify-center hover:bg-[#1E3AE8] disabled:opacity-30 disabled:hover:bg-[#2A45FE] transition-all shadow-sm cursor-pointer"
           >
             <ArrowUp className="h-4 w-4 stroke-[2.5]" />
           </button>
@@ -261,22 +261,21 @@ export default function ChatPage() {
         {messages.length === 0 ? (
           /* Empty / Standby Ambient View (Optimized for PC & Mobile) */
           <div className="flex flex-col items-center justify-center py-6 sm:py-10 text-center max-w-4xl mx-auto w-full">
-            {/* Signature Floating Iridescent Pearl Orb */}
+            {/* Signature Brand Badge */}
             <div className="relative mb-5 flex items-center justify-center">
-              <div className="absolute h-48 w-48 sm:h-56 sm:w-56 rounded-full iridescent-orb pointer-events-none"></div>
-              <div className="relative flex h-28 w-28 sm:h-36 sm:w-36 items-center justify-center rounded-full iridescent-sphere shadow-2xl transition-transform hover:scale-105 duration-500">
+              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-[#2A45FE] shadow-xl shadow-blue-500/15 transition-transform hover:scale-105 duration-300">
                 <div className="text-center">
-                  <div className="text-base sm:text-lg font-black tracking-tight text-white drop-shadow-md">BioPack</div>
-                  <div className="text-[10px] sm:text-[11px] font-bold text-white/95 uppercase tracking-widest mt-0.5">AI Copilot</div>
+                  <div className="text-xl sm:text-2xl font-black tracking-tight text-white">BioPack</div>
+                  <div className="text-[10px] sm:text-[11px] font-extrabold text-[#F7D25C] uppercase tracking-widest mt-0.5">Copilot</div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-1.5 mb-7 max-w-xl mx-auto px-4">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-[#141928]">
                 Formulate Certified Packaging
               </h1>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md mx-auto">
+              <p className="text-xs sm:text-sm text-[#546071] leading-relaxed max-w-md mx-auto font-medium">
                 Powered by Gemini 2.5 Flash, ICMR-NIN food physics, and FSSAI 2018 statutory regulations.
               </p>
             </div>
@@ -287,8 +286,8 @@ export default function ChatPage() {
             {/* "Get Started" Sample Prompts */}
             <div className="w-full text-left px-1">
               <div className="flex items-center justify-between px-1 mb-3">
-                <span className="text-xs font-bold text-slate-500 tracking-wider uppercase">Sample Formulations</span>
-                <span className="text-[10px] text-slate-400 font-medium sm:hidden">Swipe to explore →</span>
+                <span className="text-xs font-bold text-[#546071] tracking-wider uppercase">Sample Formulations</span>
+                <span className="text-[10px] text-[#8592A6] font-medium sm:hidden">Swipe to explore →</span>
               </div>
               
               {/* Desktop 4-column Grid: perfectly balanced, zero clipping */}
@@ -297,21 +296,21 @@ export default function ChatPage() {
                   <button
                     key={i}
                     onClick={() => handleSend(card.query)}
-                    className="flex flex-col justify-between p-4 rounded-2xl bg-white/85 border border-slate-200/80 shadow-xs hover:shadow-md hover:border-emerald-400 hover:-translate-y-0.5 hover:bg-white transition-all text-left group cursor-pointer"
+                    className="paper-card-hover flex flex-col justify-between p-4 rounded-2xl text-left group cursor-pointer"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-2xl p-1 rounded-xl bg-slate-50 border border-slate-100 group-hover:scale-110 transition-transform">
+                        <span className="text-2xl p-1 rounded-xl bg-[#FAF7F2] border border-[#E8E1D5] group-hover:scale-110 transition-transform">
                           {card.icon}
                         </span>
-                        <span className="h-6 w-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-colors text-slate-400">
+                        <span className="h-6 w-6 rounded-full bg-[#FAF7F2] flex items-center justify-center group-hover:bg-[#2A45FE] group-hover:text-white transition-colors text-[#546071]">
                           <ArrowRight className="h-3 w-3" />
                         </span>
                       </div>
-                      <div className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-emerald-700 transition-colors">
+                      <div className="font-bold text-xs sm:text-sm text-[#141928] group-hover:text-[#2A45FE] transition-colors">
                         {card.title}
                       </div>
-                      <div className="text-[11px] text-slate-500 mt-1.5 leading-snug line-clamp-2">
+                      <div className="text-[11px] text-[#546071] mt-1.5 leading-snug line-clamp-2">
                         {card.desc}
                       </div>
                     </div>
@@ -352,11 +351,11 @@ export default function ChatPage() {
               >
                 {/* Avatar Icon */}
                 {m.sender === "user" ? (
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white text-xs font-bold shadow-sm">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#141928] text-white text-xs font-bold shadow-xs">
                     <User className="h-3.5 w-3.5" />
                   </div>
                 ) : (
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full iridescent-sphere shadow-sm text-white text-[10px] font-black">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#2A45FE] shadow-xs text-white text-[10px] font-black">
                     BP
                   </div>
                 )}
@@ -365,7 +364,7 @@ export default function ChatPage() {
                 <div
                   className={`min-w-0 text-xs leading-relaxed ${
                     m.sender === "user"
-                      ? "max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-tr-none bg-slate-900 text-white px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-sm font-medium ml-auto"
+                      ? "max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-tr-none bg-[#141928] text-white px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-xs font-medium ml-auto"
                       : "flex-1 min-w-0 space-y-4"
                   }`}
                 >

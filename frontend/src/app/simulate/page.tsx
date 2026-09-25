@@ -422,7 +422,7 @@ function SimulateContent() {
             <button
               onClick={handleSimulateAndMark}
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 py-3 text-xs font-semibold text-white transition-colors cursor-pointer shadow-sm disabled:opacity-50"
+              className="btn-cobalt w-full flex items-center justify-center gap-2 py-3 text-xs font-bold cursor-pointer disabled:opacity-50"
             >
               <RefreshCw className={`h-3.5 w-3.5 ${loading ? "animate-spin" : ""}`} />
               <span>Recalculate Degradation</span>

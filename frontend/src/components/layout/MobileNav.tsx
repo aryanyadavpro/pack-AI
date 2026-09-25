@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkles, Compass, Activity, ShieldCheck, Database } from "lucide-react";
+import { Sparkles, Compass, Activity, ShieldCheck } from "lucide-react";
 
 export function MobileNav() {
   const pathname = usePathname();
@@ -21,7 +21,7 @@ export function MobileNav() {
 
   return (
     <nav className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-sm md:hidden">
-      <div className="flex items-center justify-around py-1.5 px-2 rounded-full bg-white/90 backdrop-blur-2xl border border-white/95 shadow-[0_12px_40px_-5px_rgba(15,23,42,0.18)]">
+      <div className="flex items-center justify-around py-1.5 px-2 rounded-full bg-white/95 backdrop-blur-xl border border-[#E8E1D5] shadow-[0_12px_30px_-5px_rgba(20,25,40,0.12)]">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
@@ -31,11 +31,11 @@ export function MobileNav() {
               href={item.href}
               className={`flex flex-col items-center justify-center py-1.5 px-3 rounded-full transition-all min-w-[54px] ${
                 isActive
-                  ? "bg-slate-900 text-white shadow-sm"
-                  : "text-slate-500 hover:text-slate-900 hover:bg-slate-100/80"
+                  ? "bg-[#141928] text-white shadow-xs"
+                  : "text-[#546071] hover:text-[#141928] hover:bg-[#FAF7F2]"
               }`}
             >
-              <Icon className={`h-4 w-4 ${isActive ? "text-emerald-400" : "text-slate-400"}`} />
+              <Icon className={`h-4 w-4 ${isActive ? "text-[#F7D25C]" : "text-[#8592A6]"}`} />
               <span className="text-[10px] font-bold tracking-tight mt-0.5">{item.label}</span>
             </Link>
           );

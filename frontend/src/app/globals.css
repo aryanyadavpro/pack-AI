@@ -7,135 +7,154 @@
   }
 
   body {
-    background-color: #f7f9fc;
-    color: #0f172a;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background-color: #FAF7F2;
+    color: #141928;
+    font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-plus-jakarta), sans-serif;
+    letter-spacing: -0.025em;
+  }
 }
 
-/* Custom subtle modern scrollbar */
+/* Custom warm scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #FAF7F2;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.35);
+  background: #D8D1C5;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.55);
+  background: #BDB4A5;
 }
 
-/* Manus / Manix Ethereal Glass Tokens */
+/* Halo Lab Inspired Warm Paper & Tactile Tokens */
+.paper-canvas {
+  background-color: #FAF7F2;
+}
+
+.paper-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 20px -3px rgba(20, 25, 40, 0.04), 0 1px 3px 0 rgba(20, 25, 40, 0.02);
+}
+
+.paper-card-hover {
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 20px -3px rgba(20, 25, 40, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.paper-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #D6CCC0;
+  box-shadow: 0 12px 30px -4px rgba(20, 25, 40, 0.08);
+}
+
+/* Backward compatible aliases using clean, non-AI aesthetic */
 .manus-bg {
-  background-color: #f8fafc;
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(192, 132, 252, 0.16) 0%, transparent 45%),
-    radial-gradient(circle at 85% 20%, rgba(103, 232, 249, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 50% 60%, rgba(244, 114, 182, 0.14) 0%, transparent 50%),
-    radial-gradient(circle at 80% 85%, rgba(253, 224, 71, 0.12) 0%, transparent 40%),
-    radial-gradient(circle at 20% 90%, rgba(94, 234, 212, 0.14) 0%, transparent 45%);
-  background-attachment: fixed;
+  background-color: #FAF7F2;
 }
 
 .manus-glass {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 12px 34px -6px rgba(100, 116, 139, 0.08), 0 2px 8px -2px rgba(100, 116, 139, 0.04);
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 18px -2px rgba(20, 25, 40, 0.04);
 }
 
 .manus-glass-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 10px 30px -4px rgba(148, 163, 184, 0.1), 0 2px 6px -1px rgba(148, 163, 184, 0.04);
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 18px -2px rgba(20, 25, 40, 0.04);
 }
 
 .manus-pill {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 4px 18px -2px rgba(100, 116, 139, 0.08);
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 2px 8px -1px rgba(20, 25, 40, 0.04);
 }
 
 .manus-pill-active {
-  background: #ffffff;
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  box-shadow: 0 4px 18px -2px rgba(16, 185, 129, 0.18);
+  background: #141928;
+  color: #FFFFFF;
+  border: 1px solid #141928;
+  box-shadow: 0 4px 14px -2px rgba(20, 25, 40, 0.15);
 }
 
-/* Glass panel styling with crisp legibility */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.90);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 10px 30px -4px rgba(148, 163, 184, 0.1);
+  background: #FFFFFF;
+  border: 1px solid #E8E1D5;
+  box-shadow: 0 4px 20px -3px rgba(20, 25, 40, 0.04);
 }
 
 .glass-panel-glow {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1.5px solid rgba(16, 185, 129, 0.35);
-  box-shadow: 0 12px 38px -6px rgba(16, 185, 129, 0.15), 0 4px 12px -2px rgba(100, 116, 139, 0.06);
+  background: #FFFFFF;
+  border: 1.5px solid #2A45FE;
+  box-shadow: 0 8px 24px -4px rgba(42, 69, 254, 0.12);
 }
 
-.gradient-text-emerald {
-  background: linear-gradient(135deg, #047857 0%, #059669 50%, #0d9488 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Isometric Retro Wireframe Background */
+.retro-wireframe-grid {
+  background-image: 
+    linear-gradient(to right, rgba(20, 25, 40, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 25, 40, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-.gradient-text-iridescent {
-  background: linear-gradient(135deg, #7c3aed 0%, #0284c7 50%, #059669 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Warm Tri-color Vertical Center Ribbon (Yellow, Terracotta Peach, Sky Blue) */
+.stripe-ribbon {
+  display: flex;
+  height: 100%;
+  width: 24px;
+}
+.stripe-yellow { background-color: #F7D25C; }
+.stripe-peach { background-color: #F3A286; }
+.stripe-sky { background-color: #70C5E2; }
+
+/* Sunburst / Scalloped Sticker */
+.sunburst-badge {
+  background-color: #F7D25C;
+  color: #141928;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px -3px rgba(247, 210, 92, 0.45);
 }
 
-/* Ethereal Iridescent Animated Orb */
-.iridescent-orb {
-  background: conic-gradient(
-    from 180deg at 50% 50%,
-    #a855f7 0deg,
-    #38bdf8 72deg,
-    #34d399 144deg,
-    #fbbf24 216deg,
-    #f472b6 288deg,
-    #a855f7 360deg
-  );
-  filter: blur(28px);
-  opacity: 0.85;
-  animation: orb-spin 18s linear infinite alternate;
+/* Bold Royal Cobalt Primary Button */
+.btn-cobalt {
+  background-color: #2A45FE;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px -1px rgba(42, 69, 254, 0.3);
+}
+.btn-cobalt:hover {
+  background-color: #1E3AE8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -2px rgba(42, 69, 254, 0.4);
 }
 
-.iridescent-sphere {
-  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #e0e7ff 25%, #c084fc 50%, #67e8f9 75%, #f472b6 100%);
-  box-shadow: 
-    inset -8px -8px 20px rgba(147, 51, 234, 0.3),
-    inset 8px 8px 16px rgba(255, 255, 255, 0.9),
-    0 16px 36px -8px rgba(168, 85, 247, 0.28);
+/* Crisp Ink Outlined Button */
+.btn-ink-outline {
+  background-color: #FFFFFF;
+  color: #141928;
+  border: 1.5px solid #141928;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-@keyframes orb-spin {
-  0% {
-    transform: rotate(0deg) scale(0.96);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.06);
-  }
-  100% {
-    transform: rotate(360deg) scale(0.98);
-  }
+.btn-ink-outline:hover {
+  background-color: #F4EFE6;
+  transform: translateY(-1px);
 }
-
