@@ -111,60 +111,296 @@ Trained on 5,000 verified industrial food packaging and kinetic shelf-life recor
 
 ---
 
-## 🛠️ Technology Stack
+## 🏗️ How It's Built: Architecture & Technical Foundations
 
-- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Plus Jakarta Sans typography, Lucide Icons, Recharts
-- **Backend**: Python 3.11+, FastAPI (Async Uvicorn), SQLAlchemy 2.0, Pydantic v2, Scikit-Learn, Joblib, NumPy, Pandas, SciPy
-- **Database**: SQLite (embedded production-ready) / PostgreSQL
-- **DevOps**: Docker, Docker Compose, Render Blueprint (`render.yaml`), Vercel Edge
+PackCraft AI is engineered as a decoupled, high-performance microservices architecture designed for sub-millisecond inference, rigorous compliance validation, and responsive cross-platform user experience.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                                  USER CLIENT (Browser / Mobile)                         │
+│             Next.js 16 App Router (React 19 + TypeScript + Tailwind v4 + Recharts)      │
+└────────────────────────────────────────────┬────────────────────────────────────────────┘
+                                             │ HTTP/JSON (REST API)
+                                             ▼
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│                           FASTAPI BACKEND RUNTIME (Port 8000)                           │
+│  ┌───────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                              API ROUTING & SECURITY LAYER                         │  │
+│  │   /api/v1/chat    /api/v1/recommend    /api/v1/simulate    /api/v1/audit          │  │
+│  └───────┬────────────────────┬─────────────────────┬───────────────────┬────────────┘  │
+│          │                    │                     │                   │               │
+│          ▼                    ▼                     ▼                   ▼               │
+│  ┌───────────────┐   ┌─────────────────┐   ┌─────────────────┐   ┌───────────────┐      │
+│  │   AI ASSIST   │   │ RECOMMENDATION  │   │ SHELF-LIFE SIM  │   │  AUDIT ENGINE │      │
+│  │  • NLP Parser │   │  • Tier-1 FSSAI │   │ • GAB Sorption  │   │ • IS 9845     │      │
+│  │  • Fast Regex │   │    Safety Gate  │   │ • Lipid Perox   │   │   Simulants   │      │
+│  │  • RFQ Engine │   │  • TOPSIS Rank  │   │ • Arrhenius Q10 │   │ • Verification│      │
+│  │  • LLM Coproc │   │  • Laminate Gen │   │ • Microbe Decay │   │   Cert Hash   │      │
+│  └───────┬───────┘   └────────┬────────┘   └────────┬────────┘   └───────┬───────┘      │
+│          │                    │                     │                    │              │
+│          └────────────────────┴──────────┬──────────┴────────────────────┘              │
+│                                          ▼                                              │
+│  ┌───────────────────────────────────────────────────────────────────────────────────┐  │
+│  │                          ML INFERENCE & KNOWLEDGE BASE                            │  │
+│  │   • Pre-trained Random Forest Classifiers & Regressors (joblib in-memory)         │  │
+│  │   • 5,000-Record FSSAI Validated Food Chemistry & Packaging Dataset               │  │
+│  │   • SQLite / PostgreSQL Database with SQLAlchemy 2.0 ORM                          │  │
+│  └───────────────────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 1. Frontend Architecture
+- **Framework**: Next.js 16 (App Router) + React 19 + TypeScript.
+- **Styling System**: Tailwind CSS v4 configured with a bespoke **Warm Paper Architectural Design System** (`#FAF7F2` cream background, `#141928` midnight ink typography, `#2A45FE` royal electric cobalt accents, and `#F7D25C` buttercup highlights).
+- **Typography**: Single unified global font hierarchy powered by **Plus Jakarta Sans**.
+- **Data Visualization**: Recharts for rendering real-time dynamic sorption isotherms, oxidation kinetics, and degradation projections.
+- **State Management**: React Hooks (`useState`, `useEffect`, `useMemo`) with decoupled API client abstraction in `frontend/src/lib/api.ts`.
+
+### 2. Backend & Decision Intelligence
+- **Framework**: FastAPI (Async Python 3.11+) with high-throughput Uvicorn ASGI server.
+- **Validation**: Strict Pydantic v2 schemas for bidirectional type safety, request validation, and API serialization.
+- **ML Inference Engine**:
+  - `model1_packaging_recommender.joblib`: Random Forest Classifier & Multi-Output Gradient Boosted Regressor for optimal polymer, gauge, and barrier prediction.
+  - `model2_shelflife_simulator.joblib`: Random Forest Regressor & Gradient Boosted Classifier for failure mode prediction.
+- **MCDM Multi-Criteria Engine**: Vector-normalized **TOPSIS** (Technique for Order of Preference by Similarity to Ideal Solution) ranking candidate barrier laminates across 6 weighted technical criteria.
+- **Thermodynamic Simulation**: Custom numerical integrator solving Arrhenius temperature-accelerated Fickian diffusion equations.
 
 ---
 
-## ⚡ Quickstart
+## 🔄 End-to-End System Execution Flows
 
-### 1. Launch FastAPI Backend (Port 8000)
+### Flow 1: AI Assistant Conversational Workflow (`/chat`)
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Food Manufacturer / User
+    participant UI as Chat Frontend (/chat)
+    participant API as FastAPI Backend (/api/v1/chat)
+    participant NLP as Food Science NLP Parser
+    participant ML as ML Inference Engine
+    participant DB as FSSAI Knowledge Matrix
+
+    User->>UI: Types query (e.g., "Pouch for 500g Cow Ghee, 9 months shelf life in Rajasthan")
+    UI->>API: POST /api/v1/chat { message, conversation_history }
+    API->>NLP: Extract entities (Commodity="Ghee", Weight=500, TargetDays=270, Temp=38°C, RH=45%)
+    alt Recognized Commodity
+        NLP->>DB: Query baseline chemistry (Fat=99.5%, Moisture=0.2%, Max PV=10 meq/kg)
+        NLP->>ML: Run Model 1 & Model 2 Inference
+        ML-->>NLP: Predicted Film: Bio-PBS/Met-PLA/Kraft, Gauge: 85µm, OTR: 0.8, WVTR: 0.5
+        NLP->>API: Assemble structured reply + badges + 3-ply specs + RFQ brief
+    else General Knowledge Inquiries
+        NLP->>API: Fallback to structured food science guidance & regulations
+    end
+    API-->>UI: Return JSON Response with quick-action chips
+    UI-->>User: Render styled message, technical spec card & one-click RFQ generator
+```
+
+---
+
+### Flow 2: 2-Tier Recommendation & TOPSIS Decision Flow (`/recommend`)
+```mermaid
+flowchart TD
+    A[User Inputs: Food Commodity, Weight, Target Shelf Life, Climate] --> B[FastAPI Endpoint: POST /api/v1/recommend]
+    
+    subgraph Tier 1: Hard Regulatory Gate
+        B --> C{FSSAI Packaging Regs 2018 Validation}
+        C -->|Fat Content > 10%| C1[Reject raw unlined paper; Require Greaseproof / Bio-PBS Layer]
+        C -->|pH < 4.5 Acidic| C2[Enforce Acid Migration Resistant Lining Clause 4.3]
+        C -->|Category IV PWM 2022| C3[Filter out banned single-use non-compostables]
+        C1 --> D[Filtered Safe Biopolymer Candidate Set]
+        C2 --> D
+        C3 --> D
+    end
+
+    subgraph Multi-Layer Barrier Synthesis
+        D --> E[Laminate Layer Synthesizer]
+        E -->|Outer Layer| E1[Printable Structural Substrate: FSC Paper / Bio-PET / PLA]
+        E -->|Middle Layer| E2[High-Barrier Core: Metallized PLA / AlOx Bio-PBS / EVOH-Bio]
+        E -->|Inner Sealant Layer| E3[Food-Contact Sealant: Virgin Starch Blend / Heat-Seal Bio-PE]
+    end
+
+    subgraph Tier 2: TOPSIS Vector Ranking
+        E1 & E2 & E3 --> F[Build Decision Matrix X: 6 Criteria x N Candidates]
+        F --> G[Vector Normalize Matrix: r_ij = x_ij / sqrt(sum(x_ij^2))]
+        G --> H[Apply Weights: Barrier (30%), Thickness (15%), Cost (20%), Strength (15%), Compostability (10%), Format (10%)]
+        H --> I[Determine Ideal Best A+ and Ideal Worst A- Solutions]
+        I --> J[Calculate Euclidean Distances S+ and S-]
+        J --> K[Compute Relative Closeness Score: C_i = S- / (S+ + S-)]
+        K --> L[Rank Candidates: Top Choice (Score: 0.94+)]
+    end
+
+    subgraph Statutory Compliance & Output
+        L --> M[Assign BIS IS 9845 Simulant Protocol: Olive Oil / 3% Acetic Acid / Ethanol]
+        M --> N[JSON Response: Ranked Solutions, 3-Ply Breakdown, Migration Limits]
+        N --> O[Frontend Visualization: Spec Card, Layer Viewer, Audit Link]
+    end
+```
+
+---
+
+### Flow 3: Kinetic Shelf-Life Simulation Flow (`/simulate`)
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as Packaging Engineer
+    participant UI as Simulator UI (/simulate)
+    participant SIM as Simulation Engine (/api/v1/simulate)
+
+    User->>UI: Adjusts ambient sliders (Temp: 40°C, RH: 85%, OTR: 1.5, WVTR: 2.0)
+    UI->>SIM: POST /api/v1/simulate { commodity, packaging_params, climate_params }
+    
+    loop Numerical Integration (Day t = 0 to 730)
+        SIM->>SIM: Calculate Water Vapor Ingress: dM/dt = (WVTR * Area / d) * (RH_amb - aw) * Q10_factor
+        SIM->>SIM: Calculate Lipid Auto-Oxidation: dPV/dt = k_ox * (OTR / 100) * exp(-Ea / RT)
+        SIM->>SIM: Calculate Microbial Growth: dN/dt = mu_max * (1 - N/N_max) * f(aw, T)
+        SIM->>SIM: Evaluate Critical Threshold Crossings (M > Mcrit, PV > PVcrit, N > 10^5 CFU/g)
+    end
+    
+    SIM->>SIM: Determine Limiting Failure Mode & Predicted Shelf-Life Days
+    SIM-->>UI: Return 730-day time-series arrays for Moisture, Peroxide Value, Microbial Index
+    UI-->>User: Plot interactive Recharts curve & display failure mode alert
+```
+
+---
+
+## 📁 Project Directory Structure
+
+```
+c:\packAI\
+├── backend/                               # FastAPI Python Backend
+│   ├── app/
+│   │   ├── api/                           # API Routes & Endpoints
+│   │   │   └── v1/
+│   │   │       ├── endpoints/
+│   │   │       │   ├── audit.py           # Statutory FSSAI/BIS audit certificate generation
+│   │   │       │   ├── chat.py            # AI packaging assistant NLP endpoint
+│   │   │       │   ├── health.py          # Uptime and service health check
+│   │   │       │   ├── materials.py       # Biopolymer physical database queries
+│   │   │       │   ├── recommendation.py  # 2-Tier FSSAI + TOPSIS optimization API
+│   │   │       │   └── simulation.py      # Non-linear shelf-life kinetics endpoint
+│   │   │       └── router.py              # Main API router registry (/api/v1)
+│   │   ├── core/                          # Global config, settings, and constants
+│   │   │   └── config.py
+│   │   ├── db/                            # Database connection & ORM sessions
+│   │   │   └── session.py
+│   │   ├── models/                        # SQLAlchemy database entity models
+│   │   │   └── food_item.py
+│   │   ├── schemas/                       # Pydantic v2 validation schemas
+│   │   │   ├── chat.py
+│   │   │   ├── recommendation.py
+│   │   │   └── simulation.py
+│   │   └── services/                      # Core Business Logic & Algorithms
+│   │       ├── ai_chat/
+│   │       │   ├── llm_parser.py          # Natural language entity extractor
+│   │       │   └── rfq_generator.py       # B2B Supplier RFQ generator
+│   │       ├── ml/
+│   │       │   ├── model1_packaging_recommender.joblib  # Trained ML Recommender
+│   │       │   ├── model2_shelflife_simulator.joblib    # Trained ML Simulator
+│   │       │   └── model_loader.py                      # In-memory model manager
+│   │       ├── recommendation/
+│   │       │   ├── fssai_rules.py         # Statutory hard constraints
+│   │       │   ├── laminate_builder.py    # Multi-ply structure formulation
+│   │       │   └── topsis_engine.py       # Vector-normalized TOPSIS MCDM
+│   │       └── simulation/
+│   │           ├── kinetic_engine.py      # Arrhenius mass-transfer ODE solver
+│   │           └── sorption_isotherms.py  # GAB & BET moisture equilibrium
+│   ├── Dockerfile                         # Container build definition for backend
+│   ├── requirements.txt                   # Production Python dependencies
+│   └── run.py                             # Development server bootstrap
+│
+├── frontend/                              # Next.js 16 Client Application
+│   ├── public/                            # Static assets & brand identity
+│   │   ├── logo.png                       # Custom origami leaf branding
+│   │   ├── icon.png                       # Favicon & touch icons
+│   │   └── fonts/                         # Plus Jakarta Sans local fallbacks
+│   ├── src/
+│   │   ├── app/                           # Next.js App Router Pages
+│   │   │   ├── audit/page.tsx             # Statutory Audit Certificate Studio
+│   │   │   ├── chat/page.tsx              # AI Packaging Assistant Interface
+│   │   │   ├── recommend/page.tsx         # Packaging Optimization Wizard
+│   │   │   ├── simulate/page.tsx          # Dynamic Shelf-Life Sandbox
+│   │   │   ├── globals.css                # Warm paper CSS design tokens
+│   │   │   ├── layout.tsx                 # Root layout with font injection
+│   │   │   └── page.tsx                   # Halo Lab-inspired Landing Page
+│   │   ├── components/
+│   │   │   ├── layout/                    # Reusable Navigation & Footer
+│   │   │   │   ├── Navbar.tsx
+│   │   │   │   ├── MobileNav.tsx
+│   │   │   │   └── Footer.tsx
+│   │   │   └── ui/                        # Reusable paper-style components
+│   │   │       ├── Button.tsx
+│   │   │       ├── Card.tsx
+│   │   │       └── Slider.tsx
+│   │   └── lib/
+│   │       ├── api.ts                     # Normalized Axios/Fetch API client
+│   │       └── utils.ts                   # Formatting & calculation utilities
+│   ├── package.json                       # Node dependencies & build scripts
+│   └── tsconfig.json                      # TypeScript compiler settings
+│
+├── docker-compose.yml                     # Multi-service local production orchestration
+├── render.yaml                            # Cloud deployment blueprint for Render
+├── run.bat                                # 1-Click Windows development launcher
+└── readme.md                              # Technical documentation
+```
+
+---
+
+## 🛠️ Technology Stack & Dependencies
+
+| Layer | Technologies / Libraries |
+| :--- | :--- |
+| **Frontend Framework** | **Next.js 16 (App Router)**, **React 19**, **TypeScript 5.0+** |
+| **Styling & UI** | **Tailwind CSS v4**, Bespoke Warm Paper tokens, **Plus Jakarta Sans**, **Lucide React** |
+| **Data Charting** | **Recharts 2.x** (SVG-based responsive time-series & spider charts) |
+| **Backend Framework** | **FastAPI 0.110+**, **Python 3.11+**, **Uvicorn ASGI** |
+| **Data Validation** | **Pydantic v2**, Python Typing system |
+| **Machine Learning** | **Scikit-Learn 1.4+**, **Joblib 1.3+**, **NumPy**, **Pandas**, **SciPy** |
+| **Database & ORM** | **SQLAlchemy 2.0**, SQLite (embedded) / PostgreSQL compatible |
+| **Deployment & Ops** | **Docker Multi-stage**, **Render Blueprint**, **Vercel Edge Platform** |
+
+---
+
+## ⚡ Quickstart & Local Setup
+
+### Prerequisites
+- Python 3.11 or higher
+- Node.js 18.x or higher
+- npm 9.x or higher
+
+### Option 1: 1-Click Launch (Windows)
+Double-click [`run.bat`](file:///c:/packAI/run.bat) or run in terminal:
+```bat
+.\run.bat
+```
+*This simultaneously boots the FastAPI backend on `http://localhost:8000` and the Next.js frontend on `http://localhost:3000` in separate terminal windows.*
+
+---
+
+### Option 2: Manual Step-by-Step Setup
+
+#### 1. Backend Setup
 ```bash
 cd backend
+python -m venv venv
+
+# Windows activate:
+.\venv\Scripts\activate
+# Linux/macOS activate:
+# source venv/bin/activate
+
+pip install -r requirements.txt
 python -m uvicorn app.main:app --reload --port 8000
 ```
-- Interactive Swagger API Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
-- Interactive Health Check: [http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health)
+- Swagger Interactive Documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+- API Health Status: [http://localhost:8000/api/v1/health](http://localhost:8000/api/v1/health)
 
-### 2. Launch Next.js Frontend (Port 3000)
+#### 2. Frontend Setup
 ```bash
 cd frontend
+npm install
 npm run dev
 ```
-- Web Application: [http://localhost:3000](http://localhost:3000)
-- AI Assistant: [http://localhost:3000/chat](http://localhost:3000/chat)
-- Packaging Wizard: [http://localhost:3000/recommend](http://localhost:3000/recommend)
-- Shelf-Life Simulator: [http://localhost:3000/simulate](http://localhost:3000/simulate)
-- Statutory Audit Generator: [http://localhost:3000/audit](http://localhost:3000/audit)
-
-### 3. Automated Verification Suite
-```bash
-cd backend
-python -m pytest
-```
-
----
-
-## 🌐 Production Deployment
-
-### Option A: Vercel (Frontend) + Render (Backend) [Recommended]
-1. **Backend on Render**:
-   - Runtime: `Python 3`
-   - Root Directory: `backend`
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-2. **Frontend on Vercel**:
-   - Root Directory: `frontend`
-   - Environment Variable: `NEXT_PUBLIC_API_URL=https://<your-render-app>.onrender.com/api/v1`
-
-### Option B: Full Docker Compose
-```bash
-docker compose up -d --build
-```
+- Open browser at [http://localhost:3000](http://localhost:3000)
 
 ---
 
