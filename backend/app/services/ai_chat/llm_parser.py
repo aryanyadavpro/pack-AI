@@ -346,6 +346,7 @@ def process_ai_chat_query(user_message: str, db: Session) -> Dict[str, Any]:
         barrier_margin = round((wvtr_margin + otr_margin) / 2.0, 3)
 
         candidates.append({
+            "db_material": mat,
             "trade_name": mat.trade_name,
             "layer_structure": mat.layer_structure,
             "polymer_family": mat.polymer_family,
@@ -361,7 +362,7 @@ def process_ai_chat_query(user_message: str, db: Session) -> Dict[str, Any]:
 
     safe_cands = [c for c in candidates if c["is_safe"]]
     ranking_pool = safe_cands if len(safe_cands) >= 3 else candidates
-    ranked = rank_materials_topsis(ranking_pool)
+    ranked = rank_materials_topsis(ranking_pool, commodity_category=commodity.category)
     top_3_raw = ranked[:3] if ranked else []
 
     top_3_materials = []

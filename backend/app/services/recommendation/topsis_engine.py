@@ -289,10 +289,12 @@ def rank_materials_topsis(
     # Construct decision matrix X (m x 6)
     matrix = []
     for item in candidates_data:
-        mat = item["db_material"]
+        mat = item.get("db_material")
+        trade_name = getattr(mat, "trade_name", "") if mat else item.get("trade_name", "")
+        layer_structure = getattr(mat, "layer_structure", "") if mat else item.get("layer_structure", "")
         fmt_score = _compute_format_suitability(
-            trade_name=mat.trade_name,
-            layer_structure=mat.layer_structure,
+            trade_name=trade_name,
+            layer_structure=layer_structure,
             category=commodity_category or ""
         )
         item["format_suitability"] = fmt_score  # store for debugging
