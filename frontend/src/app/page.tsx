@@ -87,7 +87,7 @@ export default function HomePage() {
               className="btn-cobalt inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-bold w-full sm:w-auto"
             >
               <Sparkles className="h-4 w-4" />
-              <span>Launch AI Copilot</span>
+              <span>Launch AI Assistant</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link

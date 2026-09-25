@@ -8,7 +8,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: "/chat", label: "AI Copilot", icon: Sparkles },
+    { href: "/chat", label: "AI Assistant", icon: Sparkles },
     { href: "/recommend", label: "Packaging Wizard", icon: Compass },
     { href: "/simulate", label: "Shelf-Life Simulator", icon: Activity },
     { href: "/audit", label: "Statutory Audit", icon: FileText },
@@ -20,11 +20,11 @@ export function Navbar() {
         {/* Brand */}
         <Link href="/" className="group flex items-center gap-2.5">
           <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#2A45FE] text-white shadow-sm group-hover:scale-105 transition-transform">
-            <span className="font-black text-xs tracking-wider">BP</span>
+            <span className="font-black text-xs tracking-wider">PC</span>
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-base font-black tracking-tight text-[#141928]">BioPack<span className="text-[#2A45FE]">.ai</span></span>
+              <span className="text-base font-black tracking-tight text-[#141928]">PackCraft<span className="text-[#2A45FE]">.ai</span></span>
               <span className="hidden sm:inline-flex items-center gap-1 rounded-full bg-[#F7D25C]/30 px-2 py-0.5 text-[10px] font-extrabold text-[#141928] border border-[#F7D25C]">
                 FSSAI 2018
               </span>
@@ -59,7 +59,7 @@ export function Navbar() {
         <div className="flex items-center gap-2.5">
           <div className="hidden sm:flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-[11px] font-bold text-[#141928] border border-[#E8E1D5]">
             <span className="h-2 w-2 rounded-full bg-[#1F8756]"></span>
-            <span>BioPack 2.5</span>
+            <span>PackCraft 2.5</span>
           </div>
 
           {pathname !== "/chat" && (
@@ -68,7 +68,7 @@ export function Navbar() {
               className="btn-cobalt inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-bold"
             >
               <Sparkles className="h-3.5 w-3.5" />
-              <span className="hidden xs:inline">Open Copilot</span>
+              <span className="hidden xs:inline">AI Assistant</span>
               <span className="xs:hidden">Chat</span>
             </Link>
           )}

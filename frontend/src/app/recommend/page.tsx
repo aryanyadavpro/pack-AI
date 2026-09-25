@@ -584,7 +584,7 @@ export default function RecommendPage() {
               ) : (
                 <>
                   <Leaf className="h-4 w-4 text-white" />
-                  <span>Run BioPack Optimization</span>
+                  <span>Run PackCraft Formulation</span>
                 </>
               )}
             </button>
@@ -594,7 +594,7 @@ export default function RecommendPage() {
         {/* Right Column: Optimization Results & Spec Sheet (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
           {error && (
-            <div className="manus-glass-card p-4 rounded-2xl border-rose-300 bg-rose-50 text-rose-800 text-sm flex items-center gap-3">
+            <div className="paper-card p-4 rounded-2xl border-rose-300 bg-rose-50 text-rose-800 text-sm flex items-center gap-3">
               <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
               <span>{error}</span>
             </div>
@@ -603,13 +603,13 @@ export default function RecommendPage() {
           {result && topRec && (
             <>
               {/* Active Specification Header Banner */}
-              <div className="manus-glass-card p-4 sm:p-5 rounded-2xl border-2 border-emerald-500/40 bg-emerald-50/70 shadow-xs">
+              <div className="paper-card p-4 sm:p-5 rounded-2xl border-2 border-[#2A45FE]/30 bg-[#2A45FE]/5 shadow-xs">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
-                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800">
-                      Active Biopack Specification Generated For:
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#2A45FE]">
+                      Active PackCraft Specification Generated For:
                     </span>
-                    <div className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5 flex flex-wrap items-center gap-2">
+                    <div className="text-xl sm:text-2xl font-black text-[#141928] mt-0.5 flex flex-wrap items-center gap-2">
                       <span>{result.commodity_name}</span>
                       <span className="text-xs font-bold text-emerald-800 bg-white px-2.5 py-0.5 rounded-full border border-emerald-300">
                         {result.commodity_category}

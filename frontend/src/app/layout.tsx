@@ -23,13 +23,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "BioPack AI — Intelligent Food Packaging Platform",
+  title: "PackCraft AI — Intelligent Food Packaging Platform",
   description: "Deterministic packaging recommendation and shelf-life simulation engine for Indian agro-food commodities based on physical chemistry, FSSAI regulations 2018, and IS/ISO 17088 certified bioplastics.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "BioPack AI",
+    title: "PackCraft AI",
   },
   icons: {
     icon: [

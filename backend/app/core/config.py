@@ -30,7 +30,7 @@ def _load_env_files():
 _load_env_files()
 
 class Settings(BaseModel):
-    PROJECT_NAME: str = "BioPack AI"
+    PROJECT_NAME: str = "PackCraft AI"
     VERSION: str = "1.0.0"
     API_V1_PREFIX: str = "/api/v1"
     

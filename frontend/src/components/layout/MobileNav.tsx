@@ -13,7 +13,7 @@ export function MobileNav() {
   }
 
   const navItems = [
-    { href: "/chat", label: "Copilot", icon: Sparkles },
+    { href: "/chat", label: "Assistant", icon: Sparkles },
     { href: "/recommend", label: "Wizard", icon: Compass },
     { href: "/simulate", label: "Simulate", icon: Activity },
     { href: "/audit", label: "Audit", icon: ShieldCheck },

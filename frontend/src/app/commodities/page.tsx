@@ -47,15 +47,15 @@ export default function CommoditiesRedirectPage() {
           className="manus-glass-card p-6 rounded-3xl hover:border-emerald-500 hover:shadow-lg transition-all group flex flex-col justify-between"
         >
           <div>
-            <div className="h-10 w-10 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
-              <Sparkles className="h-5 w-5 text-emerald-300" />
+            <div className="h-10 w-10 rounded-2xl bg-[#2A45FE] flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform">
+              <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <h3 className="text-base font-bold text-slate-900 mb-1.5">AI Copilot</h3>
-            <p className="text-xs text-slate-600 leading-relaxed">
+            <h3 className="text-base font-bold text-[#141928] mb-1.5">AI Assistant</h3>
+            <p className="text-xs text-[#546071] leading-relaxed">
               Conversational reasoning that predicts food chemistry and compliance for any regional or artisanal delicacy.
             </p>
           </div>
-          <div className="mt-5 flex items-center text-xs font-bold text-slate-900 gap-1.5 group-hover:translate-x-1 transition-transform">
+          <div className="mt-5 flex items-center text-xs font-bold text-[#2A45FE] gap-1.5 group-hover:translate-x-1 transition-transform">
             <span>Ask AI Assistant</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </div>

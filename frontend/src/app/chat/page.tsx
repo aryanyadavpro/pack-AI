@@ -221,9 +221,9 @@ export default function ChatPage() {
             <ChevronLeft className="h-4 w-4" />
           </Link>
           
-          <div className="flex items-center gap-1.5 rounded-full bg-white/90 border border-slate-200/80 px-3 py-1 shadow-sm text-xs font-semibold text-slate-800">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>BioPack 2.5 Flash</span>
+          <div className="flex items-center gap-1.5 rounded-full bg-white/90 border border-[#E8E1D5] px-3 py-1 shadow-xs text-xs font-bold text-[#141928]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#1F8756]"></span>
+            <span>PackCraft 2.5</span>
           </div>
         </div>
 
@@ -231,7 +231,7 @@ export default function ChatPage() {
           <button
             onClick={() => setMessages([])}
             title="Reset Conversation"
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-white/80 border border-slate-200/80 shadow-sm text-slate-600 hover:bg-slate-100 transition-colors text-xs cursor-pointer"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-white border border-[#E8E1D5] shadow-xs text-[#546071] hover:bg-[#FAF7F2] transition-colors text-xs cursor-pointer"
           >
             <RefreshCw className="h-3.5 w-3.5" />
           </button>
@@ -240,15 +240,15 @@ export default function ChatPage() {
 
       {/* Desktop-only Active Thread Toolbar (Only shown when active conversation exists) */}
       {messages.length > 0 && (
-        <div className="hidden md:flex items-center justify-between py-2 px-1 border-b border-slate-200/60 mb-2">
+        <div className="hidden md:flex items-center justify-between py-2 px-1 border-b border-[#E8E1D5] mb-2">
           <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-xs font-semibold text-slate-800">Active Formulation Thread</span>
-            <span className="text-[11px] text-slate-400">· ICMR-NIN & FSSAI 2018 Multi-Agent Advisory</span>
+            <span className="h-2 w-2 rounded-full bg-[#1F8756]"></span>
+            <span className="text-xs font-bold text-[#141928]">Active Formulation Thread</span>
+            <span className="text-[11px] text-[#697586]">· ICMR-NIN & FSSAI 2018 Multi-Agent Advisory</span>
           </div>
           <button
             onClick={() => setMessages([])}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 transition-all font-medium cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs text-[#546071] hover:text-[#141928] hover:bg-white border border-[#E8E1D5] transition-all font-bold cursor-pointer"
           >
             <RefreshCw className="h-3 w-3" />
             <span>New Session</span>
@@ -265,8 +265,8 @@ export default function ChatPage() {
             <div className="relative mb-5 flex items-center justify-center">
               <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-[#2A45FE] shadow-xl shadow-blue-500/15 transition-transform hover:scale-105 duration-300">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-black tracking-tight text-white">BioPack</div>
-                  <div className="text-[10px] sm:text-[11px] font-extrabold text-[#F7D25C] uppercase tracking-widest mt-0.5">Copilot</div>
+                  <div className="text-xl sm:text-2xl font-black tracking-tight text-white">PackCraft</div>
+                  <div className="text-[9px] sm:text-[10px] font-extrabold text-[#F7D25C] uppercase tracking-wider mt-0.5">AI Assistant</div>
                 </div>
               </div>
             </div>

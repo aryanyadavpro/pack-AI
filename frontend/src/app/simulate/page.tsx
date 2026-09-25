@@ -559,9 +559,9 @@ function SimulateContent() {
               {/* Side-by-Side Benchmark Comparison Table */}
               {benchmarkResult && (
                 <div className="manus-glass-card p-6 sm:p-7 rounded-3xl">
-                  <h3 className="text-base font-bold text-slate-900 mb-1 flex items-center gap-2">
-                    <Award className="h-4 w-4 text-emerald-600" />
-                    <span>Benchmark Comparison: BioPack vs Banned Polythene</span>
+                  <h3 className="text-base font-bold text-[#141928] mb-1 flex items-center gap-2">
+                    <Award className="h-4 w-4 text-[#2A45FE]" />
+                    <span>Benchmark Comparison: PackCraft Certified vs Banned Polythene</span>
                   </h3>
                   <p className="text-xs text-slate-500 mb-4">Under identical temperature ({tempC}°C) and relative humidity ({rhPct}%)</p>
 

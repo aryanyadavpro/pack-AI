@@ -338,7 +338,7 @@ function AuditContent() {
           {/* Signature & Print Footer */}
           <div className="border-t border-slate-200 pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
             <div className="text-center sm:text-left">
-              <span>Verified by BioPack AI Regulatory Governance Engine.</span>
+              <span>Verified by PackCraft AI Regulatory Governance Engine.</span>
             </div>
             <div className="print:hidden flex gap-3 w-full sm:w-auto">
               <button
