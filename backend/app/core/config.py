@@ -41,14 +41,30 @@ class Settings(BaseModel):
         else os.getenv("DATABASE_URL")
     )
     
-    # Datasets
+    # Datasets with robust fallback resolution
     RECOMMENDATION_DATASET_PATH: str = os.getenv(
         "RECOMMENDATION_DATASET_PATH",
-        str(WORKSPACE_DIR / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv")
+        next(
+            (str(p) for p in [
+                WORKSPACE_DIR / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv",
+                BASE_DIR / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv",
+                Path("/packAI") / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv",
+                Path("/app") / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv",
+            ] if p.exists()),
+            str(WORKSPACE_DIR / "fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv")
+        )
     )
     SIMULATION_DATASET_PATH: str = os.getenv(
         "SIMULATION_DATASET_PATH",
-        str(WORKSPACE_DIR / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv")
+        next(
+            (str(p) for p in [
+                WORKSPACE_DIR / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv",
+                BASE_DIR / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv",
+                Path("/packAI") / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv",
+                Path("/app") / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv",
+            ] if p.exists()),
+            str(WORKSPACE_DIR / "fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv")
+        )
     )
 
     # Optional External LLM Integration (Gemini / OpenAI)
