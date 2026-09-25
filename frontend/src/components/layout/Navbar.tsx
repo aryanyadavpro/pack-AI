@@ -19,8 +19,8 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Brand */}
         <Link href="/" className="group flex items-center gap-2.5">
-          <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#2A45FE] text-white shadow-sm group-hover:scale-105 transition-transform">
-            <span className="font-black text-xs tracking-wider">PC</span>
+          <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-xl overflow-hidden bg-white border border-[#E8E1D5] shadow-xs group-hover:scale-105 transition-transform">
+            <img src="/logo.png" alt="PackCraft AI Logo" className="h-7 w-7 object-contain" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">

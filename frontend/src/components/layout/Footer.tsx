@@ -17,8 +17,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2">
-              <div className="h-7 w-7 rounded-lg bg-[#2A45FE] flex items-center justify-center text-[10px] font-black text-white">
-                PC
+              <div className="h-7 w-7 rounded-lg overflow-hidden bg-white border border-[#E8E1D5] flex items-center justify-center">
+                <img src="/logo.png" alt="PackCraft AI" className="h-6 w-6 object-contain" />
               </div>
               <span className="text-sm font-black text-[#141928] tracking-tight">PackCraft AI</span>
               <span className="text-[10px] bg-[#F7D25C]/30 text-[#141928] border border-[#F7D25C] px-2 py-0.5 rounded-full font-bold">

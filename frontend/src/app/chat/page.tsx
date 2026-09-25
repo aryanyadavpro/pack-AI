@@ -263,11 +263,8 @@ export default function ChatPage() {
           <div className="flex flex-col items-center justify-center py-6 sm:py-10 text-center max-w-4xl mx-auto w-full">
             {/* Signature Brand Badge */}
             <div className="relative mb-5 flex items-center justify-center">
-              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-[#2A45FE] shadow-xl shadow-blue-500/15 transition-transform hover:scale-105 duration-300">
-                <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-black tracking-tight text-white">PackCraft</div>
-                  <div className="text-[9px] sm:text-[10px] font-extrabold text-[#F7D25C] uppercase tracking-wider mt-0.5">AI Assistant</div>
-                </div>
+              <div className="relative flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center rounded-3xl bg-white border border-[#E8E1D5] shadow-xl shadow-blue-500/10 p-3 transition-transform hover:scale-105 duration-300">
+                <img src="/logo.png" alt="PackCraft AI" className="h-full w-full object-contain" />
               </div>
             </div>
 
@@ -355,8 +352,8 @@ export default function ChatPage() {
                     <User className="h-3.5 w-3.5" />
                   </div>
                 ) : (
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#2A45FE] shadow-xs text-white text-[10px] font-black">
-                    BP
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white border border-[#E8E1D5] shadow-xs overflow-hidden">
+                    <img src="/logo.png" alt="PC" className="h-5 w-5 object-contain" />
                   </div>
                 )}
 
