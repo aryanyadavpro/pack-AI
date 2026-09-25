@@ -19,10 +19,12 @@ COPY backend/ /app/
 RUN mkdir -p /packAI
 COPY ["fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv", "/packAI/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"]
 COPY ["fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv", "/packAI/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"]
+COPY ["fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv", "/app/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"]
+COPY ["fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv", "/app/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"]
 
 ENV PYTHONPATH=/app
-ENV RECOMMENDATION_DATASET_PATH="/packAI/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"
-ENV SIMULATION_DATASET_PATH="/packAI/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"
+ENV RECOMMENDATION_DATASET_PATH="/app/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"
+ENV SIMULATION_DATASET_PATH="/app/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"
 
 EXPOSE 8000
 

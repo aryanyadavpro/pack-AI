@@ -8,23 +8,24 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install python dependencies
-COPY backend/requirements.txt /app/requirements.txt
+# Install python dependencies (supports both root context and backend/ context)
+COPY requirements.txt* /app/
+RUN if [ ! -f /app/requirements.txt ]; then cp /app/backend/requirements.txt /app/requirements.txt 2>/dev/null || true; fi
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend application code
-COPY backend/ /app/
+# Copy application files
+COPY . /app/
 
-# Copy reference datasets into both /packAI/ and /app/
+# Ensure datasets exist in both /packAI and /app
 RUN mkdir -p /packAI
-COPY ["fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv", "/packAI/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"]
-COPY ["fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv", "/packAI/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"]
+RUN cp /app/"fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv" /packAI/ 2>/dev/null || true
+RUN cp /app/"fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv" /packAI/ 2>/dev/null || true
 
 ENV PYTHONPATH=/app
-ENV RECOMMENDATION_DATASET_PATH="/packAI/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"
-ENV SIMULATION_DATASET_PATH="/packAI/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"
+ENV RECOMMENDATION_DATASET_PATH="/app/fssai_packaging_recommendation_dataset_5000_samples - Untitled.csv"
+ENV SIMULATION_DATASET_PATH="/app/fssai_shelf_life_simulation_dataset_5000_samples - Untitled.csv"
 
 EXPOSE 8000
 
-# Use PORT from environment (Render, Railway, etc.) or default to 8000
+# Use PORT provided by Render/Railway or fallback to 8000
 CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
