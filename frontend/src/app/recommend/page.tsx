@@ -245,9 +245,9 @@ export default function RecommendPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Input Form (5 cols) - Sticky to follow the viewport */}
-        <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Left Column: Input Form (5 cols) */}
+        <div className="lg:col-span-5 space-y-6">
           <div className="paper-card p-6 sm:p-7 rounded-3xl space-y-5">
             <h2 className="text-base font-bold text-[#141928] flex items-center gap-2.5">
               <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#2A45FE] text-xs font-bold text-white">1</span>
